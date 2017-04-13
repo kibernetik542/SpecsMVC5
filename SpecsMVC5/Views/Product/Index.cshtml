@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Product List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SpecsMVC5.Models
+@model IEnumerable<Product>
+<br>
+<br>
+
+
+
+<a href="/Product/Create" title="add new product" class="btn btn-md">
+    <i class="fa fa-2x fa-plus"></i>
+</a>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-respomsive">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (Product product in Model)
+            {
+                <tr>
+                    <td>
+                        <span class="label label-primary">
+                        @product.ProductName
+                      </span>
+                    </td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>@product.Category.CategoryName</td>
+                    <td>
+                        @if (product.Stock == null)
+                        {
+                            <span class="label label-danger">
+                           Not in stock
+                          </span>
+                        }
+                        else
+                        {
+                            <span class="label label-success">
+                            @product.Stock
+                        </span>
+                        }
+                    </td>
+                    <td>
+                        <a href="#" class="productDelete"
+                           title="delete" data-product="@product.ProductId">
+                            <i class="glyphicon glyphicon-remove text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $("document").ready(function() {
+            $(".productDelete").click(function () {
+                var result = confirm("Are you sure?");
+                if (result) {
+                    var ctgId = $(this).data("product");
+                    $.ajax({
+                        type: "POST",
+                        url: "/Product/Delete/" + ctgId,
+                        success: function () {
+                            alert("Item successfully deleted");
+                            window.location.replace("/Product/Index");
+                        },
+                        error: function () {
+                            alert("Something went wrong!");
+                        }
+                    });
+                } else {
+
+                }
+            });
+        });
+
+       
+      
+</script>
+}
