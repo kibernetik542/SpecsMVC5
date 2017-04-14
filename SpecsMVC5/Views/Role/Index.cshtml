@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SpecsMVC5.Models
+@model List<string>
+
+<br>
+<br>
+<a href="/Role/Create" title="add new product" class="btn btn-md">
+    <i class="fa fa-2x fa-plus"></i>
+</a>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+          @foreach (string role in Model)
+            {
+            <tr>
+                <td>
+                      @role     
+                </td>
+                <td>
+                    <a href="#" class="roleDelete"
+                        title="delete" data-rolename="@role">
+                        <i class="glyphicon glyphicon-remove text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

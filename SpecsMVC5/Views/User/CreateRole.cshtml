@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <form action="/User/CreateRole" role="form" method="POST">
+            <div class="form-group">
+                <label>User Name</label>
+                <select name="UserName" class="form-control">
+                    @foreach (MembershipUser mu in ViewBag.Users)
+                    {
+                        <option value="@mu.UserName">@mu.UserName</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Role</label>
+                <select name="RoleName" class="form-control">
+                    @foreach (string role in ViewBag.Roles)
+                    {
+                        <option value="@role">@role</option>
+                    }
+                </select>
+            </div>
+
+
+            <button type="submit" title="save" class="btn btn-primary">
+                <i class="fa fa-save"></i>&nbsp;Save
+            </button> |
+            <a href="/Role/Index" title="back to list" class="btn btn-warning">
+                <i class="fa fa-list-alt"></i>&nbsp;Back to List
+            </a>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Web.Security
+@using SpecsMVC5.Models
+@model MembershipUserCollection
+<br>
+<br>
+<br>
+ <a href="/User/Create" title="add new user">
+    <i class="fa fa-2x fa-user-circle"></i>
+</a> 
+<a href="/User/CreateRole/" title="add role">
+    <i class="fa fa-2x fa-user-secret text-success"></i>
+</a>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Creation Date</th>
+                    <th>Last Login Date</th>
+                    <th>Roles</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (MembershipUser mu in Model)
+            {
+                <tr>
+                    <td>@mu.UserName</td>
+                    <td>@mu.Email</td>
+                    <td>@mu.CreationDate</td>
+                    <td>@mu.LastLoginDate</td>
+                    <td>
+                        <a href="#" class="roles"
+                           title="roles" data-username="@mu.UserName">
+                            <i class="glyphicon glyphicon-bell text-success"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="#" class="userDelete"
+                           title="delete" data-username="@mu.UserName">
+                            <i class="glyphicon glyphicon-remove text-danger"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(".roles").click(function() {
+            var ka = $(this).data("username");
+            $.ajax({
+                type: "POST",
+                url: "/User/UserRoles/" + ka,
+                data:{userName:ka},
+                success: function(result) {
+                    alert(result);
+                }
+            })
+        });
+    </script>
+}

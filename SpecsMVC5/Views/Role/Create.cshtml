@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Add role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <form action="/Role/Create" role="form" method="POST">
+            <div class="form-group">
+                <label>Role Name</label>
+                <input type="text" class="form-control" required
+                       name="RoleName" placeholder="Enter role name">
+            </div>
+
+           
+            <button type="submit" title="save" class="btn btn-primary">
+                <i class="fa fa-save"></i>&nbsp;Save
+            </button> |
+            <a href="/Role/Index" title="back to list" class="btn btn-warning">
+                <i class="fa fa-list-alt"></i>&nbsp;Back to List
+            </a>
+        </form>
+
+    </div>
+</div>
+
+

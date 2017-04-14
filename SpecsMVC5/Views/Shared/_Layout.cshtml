@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
-    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet"/>
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -28,9 +29,22 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <a class="btn btn-link btn-sm" href="@Url.Action("Index", "Product")">
-                            <i class="fa fa-2x fa-product-hunt text-info"></i>
+                            <i class="fa fa-2x fa-product-hunt text-warning"></i>
                             &nbsp;Product
                         </a>
+                    </li>
+                    <li>
+                        <a class="btn btn-link btn-sm" href="@Url.Action("Index", "User")">
+                            <i class="fa fa-2x fa-users text-info"></i>
+                            &nbsp;User
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn btn-link btn-sm" href="@Url.Action("Index", "Role")">
+                            <i class="fa fa-2x fa-unlock-alt text-danger"></i>
+                            &nbsp;Roles
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,13 +52,13 @@
 
     <div class="container body-content">
         @RenderBody()
-     
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year </p>
         </footer>
     </div>
-   
+
     <script src="~/Scripts/jquery-2.2.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/bootbox.min.js"></script>

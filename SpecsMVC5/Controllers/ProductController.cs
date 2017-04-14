@@ -6,7 +6,7 @@ namespace SpecsMVC5.Controllers
 {
     public class ProductController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        DbModel db = new DbModel();
 
 
         // GET: Product
@@ -15,6 +15,9 @@ namespace SpecsMVC5.Controllers
             var products = db.Products.ToList();
             return View(products);
         }
+
+
+
 
         public ActionResult Create()
         {
