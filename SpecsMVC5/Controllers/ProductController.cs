@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace SpecsMVC5.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         DbModel db = new DbModel();

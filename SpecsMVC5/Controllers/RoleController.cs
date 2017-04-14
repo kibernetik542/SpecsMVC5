@@ -4,6 +4,7 @@ using System.Web.Security;
 
 namespace SpecsMVC5.Controllers
 {
+    [Authorize]
     public class RoleController : Controller
     {
         // GET: Role

@@ -140,6 +140,10 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
+    <Content Include="Image\chromecast-built-in-1140x400.jpg" />
+    <Content Include="Image\Lindt_Envy_Banner_1140x400.gif" />
+    <Content Include="Image\phone.png" />
+    <Content Include="Image\servers_1140x400-1140x400.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -158,6 +162,7 @@
     <Compile Include="App_Classes\User.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -189,6 +194,7 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\User\CreateRole.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
