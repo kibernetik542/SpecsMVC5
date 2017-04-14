@@ -35,5 +35,11 @@ namespace SpecsMVC5.Controllers
             }
 
         }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
     }
 }
