@@ -6,6 +6,7 @@
 
 <br>
 <br>
+
 <br>
 <div class="row">
     <div class="col-md-12">
@@ -21,7 +22,7 @@
                        name="Password" placeholder="Enter password">
             </div>
 
-          
+
             <div class="form-group">
                 <label>Email</label>
                 <input class="form-control" required type="email"
@@ -42,8 +43,12 @@
 
             <button type="submit" title="save" class="btn btn-primary">
                 <i class="fa fa-save"></i>&nbsp;Save
-            </button> 
+            </button>
         </form>
-        <span class="alert alert-danger close" id="error">@ViewBag.Message</span>
+        @if (ViewBag.Message != null)
+        {
+            <p class="alert alert-danger alert-dismissable text-center">@ViewBag.Message</p>
+        }
+     
     </div>
 </div>

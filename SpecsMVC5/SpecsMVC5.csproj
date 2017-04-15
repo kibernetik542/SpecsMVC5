@@ -146,6 +146,7 @@
     <Content Include="Image\home\italy.jpg" />
     <Content Include="Image\home\Rome-Italy.jpg" />
     <Content Include="Image\Lindt_Envy_Banner_1140x400.gif" />
+    <Content Include="Image\passforget\pass.jpg" />
     <Content Include="Image\phone.png" />
     <Content Include="Image\servers_1140x400-1140x400.jpg" />
     <Content Include="Scripts\bootbox.js" />
@@ -199,6 +200,7 @@
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\User\CreateRole.cshtml" />
     <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\Member\ForgottenPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

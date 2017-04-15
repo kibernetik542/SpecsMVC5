@@ -41,5 +41,35 @@ namespace SpecsMVC5.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
+
+
+        [AllowAnonymous]
+        public ActionResult ForgottenPassword()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult ForgottenPassword(User user)
+        {
+            MembershipUser mu = Membership.GetUser(user.UserName);
+            if (mu.PasswordQuestion == user.SecretQuestion)
+            {
+                string pass = mu.ResetPassword(user.SecretAnswer);
+                mu.ChangePassword(pass, user.Password);
+                return RedirectToAction("Login");
+            }
+
+            else
+            {
+                ViewBag.Result = "Invalid Question or answer";
+                return View();
+            }
+
+
+
+        }
+
     }
 }

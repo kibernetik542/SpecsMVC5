@@ -15,11 +15,12 @@ namespace SpecsMVC5.Controllers
             return View(users);
         }
 
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Create(User user)
         {
@@ -79,7 +80,7 @@ namespace SpecsMVC5.Controllers
                 return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult CreateRole()
         {
             ViewBag.Roles = Roles.GetAllRoles().ToList();
@@ -87,6 +88,7 @@ namespace SpecsMVC5.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult CreateRole(string UserName, string RoleName)
         {
